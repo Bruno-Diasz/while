@@ -1,3 +1,1 @@
-a := 10;
-escreva a;
-exiba "as"
+escreva 2^3
