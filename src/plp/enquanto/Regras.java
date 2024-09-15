@@ -156,6 +156,10 @@ public class Regras extends EnquantoBaseListener {
 		final String op = ctx.getChild(1).getText();
 		final Bool exp = switch (op) {
 			case "="  -> new ExpIgual(esq, dir);
+			case "<>" -> new ExpDiferente(esq, dir);
+			case "<"  -> new ExpMenor(esq, dir);
+			case ">"  -> new ExpMaior(esq, dir);
+			case ">=" -> new ExpMaiorIgual(esq, dir);
 			case "<=" -> new ExpMenorIgual(esq, dir);
 			default   -> new ExpIgual(esq, esq);
 		};

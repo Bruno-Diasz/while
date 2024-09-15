@@ -263,6 +263,37 @@ interface Linguagem {
 			return esq.getValor() == dir.getValor();
 		}
 	}
+	class ExpDiferente extends OpBin<Expressao> implements Bool {
+		ExpDiferente(Expressao esq, Expressao dir) {
+			super(esq, dir);
+		}
+
+		@Override
+		public boolean getValor() {
+			return esq.getValor() != dir.getValor();
+		}
+	}
+
+	class ExpMaior extends OpBin<Expressao> implements Bool {
+		ExpMaior(Expressao esq, Expressao dir) {
+			super(esq, dir);
+		}
+
+		@Override
+		public boolean getValor() {
+			return esq.getValor() > dir.getValor();
+		}
+	}
+	class ExpMenor extends OpBin<Expressao> implements Bool {
+		ExpMenor(Expressao esq, Expressao dir) {
+			super(esq, dir);
+		}
+
+		@Override
+		public boolean getValor() {
+			return esq.getValor() < dir.getValor();
+		}
+	}
 
 	class ExpMenorIgual extends OpBin<Expressao> implements Bool{
 		ExpMenorIgual(Expressao esq, Expressao dir) {
@@ -272,6 +303,16 @@ interface Linguagem {
 		@Override
 		public boolean getValor() {
 			return esq.getValor() <= dir.getValor();
+		}
+	}
+	class ExpMaiorIgual extends OpBin<Expressao> implements Bool{
+		ExpMaiorIgual(Expressao esq, Expressao dir) {
+			super(esq, dir);
+		}
+
+		@Override
+		public boolean getValor() {
+			return esq.getValor() >= dir.getValor();
 		}
 	}
 
