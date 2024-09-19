@@ -76,6 +76,18 @@ public interface EnquantoListener extends ParseTreeListener {
 	 */
 	void exitEnquanto(EnquantoParser.EnquantoContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code repita}
+	 * labeled alternative in {@link EnquantoParser#comando}.
+	 * @param ctx the parse tree
+	 */
+	void enterRepita(EnquantoParser.RepitaContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code repita}
+	 * labeled alternative in {@link EnquantoParser#comando}.
+	 * @param ctx the parse tree
+	 */
+	void exitRepita(EnquantoParser.RepitaContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code exiba}
 	 * labeled alternative in {@link EnquantoParser#comando}.
 	 * @param ctx the parse tree
@@ -196,6 +208,18 @@ public interface EnquantoListener extends ParseTreeListener {
 	 */
 	void exitELogico(EnquantoParser.ELogicoContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code xorLogico}
+	 * labeled alternative in {@link EnquantoParser#booleano}.
+	 * @param ctx the parse tree
+	 */
+	void enterXorLogico(EnquantoParser.XorLogicoContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code xorLogico}
+	 * labeled alternative in {@link EnquantoParser#booleano}.
+	 * @param ctx the parse tree
+	 */
+	void exitXorLogico(EnquantoParser.XorLogicoContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code naoLogico}
 	 * labeled alternative in {@link EnquantoParser#booleano}.
 	 * @param ctx the parse tree
@@ -231,4 +255,16 @@ public interface EnquantoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBoolPar(EnquantoParser.BoolParContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ouLogico}
+	 * labeled alternative in {@link EnquantoParser#booleano}.
+	 * @param ctx the parse tree
+	 */
+	void enterOuLogico(EnquantoParser.OuLogicoContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ouLogico}
+	 * labeled alternative in {@link EnquantoParser#booleano}.
+	 * @param ctx the parse tree
+	 */
+	void exitOuLogico(EnquantoParser.OuLogicoContext ctx);
 }

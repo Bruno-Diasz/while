@@ -89,6 +89,27 @@ interface Linguagem {
 			}
 		}
 	}
+	class Repita implements Comando {
+		private final Expressao vezes;
+		private final Comando comando;
+		private int contador;
+	
+
+		public Repita(Expressao vezes, Comando comando) {
+			this.vezes = vezes;
+			this.comando = comando;
+			this.contador = 0;
+			
+		}
+
+		@Override
+		public void execute() {
+			while (contador<vezes.getValor()) {
+				comando.execute();
+				contador++;
+			}
+		}
+	}
 
 	class Exiba implements Comando {
 		private final String texto;
@@ -335,6 +356,26 @@ interface Linguagem {
 		@Override
 		public boolean getValor() {
 			return esq.getValor() && dir.getValor();
+		}
+	}
+	class OuLogico extends OpBin<Bool> implements Bool{
+		OuLogico(Bool esq, Bool dir) {
+			super(esq, dir);
+		}
+
+		@Override
+		public boolean getValor() {
+			return esq.getValor() || dir.getValor();
+		}
+	}
+	class XorLogico extends OpBin<Bool> implements Bool{
+		XorLogico(Bool esq, Bool dir) {
+			super(esq, dir);
+		}
+
+		@Override
+		public boolean getValor() {
+			return esq.getValor() ^ dir.getValor();
 		}
 	}
 }

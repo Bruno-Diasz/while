@@ -1,1 +1,2 @@
-se 1<>2 entao exiba "verdadeiro" senao exiba "falso"
+repita 3 vezes
+ exiba "oi";

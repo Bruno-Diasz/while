@@ -2,14 +2,15 @@ grammar Enquanto;
 
 programa : seqComando;     // sequência de comandos
 
-seqComando: comando (';' comando)* ;
+seqComando: (comando ';')+ ;
 
 comando: ID ':=' expressao                               # atribuicao
        | 'skip'                                          # skip
        | 'se' booleano 'entao' comando 'senao' comando   # se
        | 'enquanto' booleano 'faca' comando              # enquanto
+       | 'repita' expressao 'vezes' comando              # repita 
        | 'exiba' TEXTO                                   # exiba
-       | 'escreva' expressao                             # escreva
+       | ('escreva' | 'exiba') expressao                 # escreva
        | '{' seqComando '}'                              # bloco
        ;
 
@@ -27,6 +28,8 @@ booleano: BOOLEANO                                       # bool
         | expressao ('>' | '<') expressao                # opRel
         | expressao ('<=' | '>=') expressao              # opRel
         | 'nao' booleano                                 # naoLogico
+        | booleano 'ou' booleano                         # ouLogico
+        | booleano 'xor' booleano                        # xorLogico
         | booleano 'e' booleano                          # eLogico
         | '(' booleano ')'                               # boolPar
         ;

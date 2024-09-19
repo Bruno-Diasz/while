@@ -116,12 +116,30 @@ public class Regras extends EnquantoBaseListener {
 		final Comando comando = valores.pegue(ctx.comando());
 		valores.insira(ctx, new Enquanto(condicao, comando));
 	}
+	@Override
+	public void exitRepita(RepitaContext ctx) {
+		final Expressao vezes = valores.pegue(ctx.expressao());
+		final Comando comando = valores.pegue(ctx.comando());
+		valores.insira(ctx, new Repita(vezes, comando));
+	}
 
 	@Override
 	public void exitELogico(ELogicoContext ctx) {
 		final Bool esq = valores.pegue(ctx.booleano(0));
 		final Bool dir = valores.pegue(ctx.booleano(1));
 		valores.insira(ctx, new ELogico(esq, dir));
+	}
+	@Override
+	public void exitOuLogico(OuLogicoContext ctx) {
+		final Bool esq = valores.pegue(ctx.booleano(0));
+		final Bool dir = valores.pegue(ctx.booleano(1));
+		valores.insira(ctx, new OuLogico(esq, dir));
+	}
+	@Override
+	public void exitXorLogico(XorLogicoContext ctx) {
+		final Bool esq = valores.pegue(ctx.booleano(0));
+		final Bool dir = valores.pegue(ctx.booleano(1));
+		valores.insira(ctx, new XorLogico(esq, dir));
 	}
 
 	@Override
